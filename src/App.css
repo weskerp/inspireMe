@@ -1,6 +1,30 @@
-.App {
-  text-align: center;
+.app {
+    text-align: center;
+    font-family: 'Arial', sans-serif; /* Altere 'Arial' para a fonte desejada */
+    color: #3498db; /* Altere para a cor desejada */
+    height: 100vh;
 }
+
+.app-title {
+    font-size: 3em;
+    font-style: italic;
+    margin-bottom: 20px;
+}
+
+.message {
+    font-size: 1.5em;
+    font-style: italic;
+    color: #2ecc71; /* Altere para a cor desejada */
+}
+
+.ad-block {
+    margin: 20px 0;
+  }
+  
+  .ad-block img {
+    width: 100%; /* Garante que a imagem do anúncio ocupa toda a largura do contêiner */
+  }
+
 
 .App-logo {
   height: 40vmin;

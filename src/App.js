@@ -1,25 +1,37 @@
-import logo from './logo.svg';
-import './App.css';
+// App.js
+import React, { useState, useEffect } from "react"
+import Message from "./components/Message"
+import messages from "./consts/messages"
+import "./App.css"; // Importe o arquivo CSS para estilização
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+
+const getMotivationalMessage = () => {
+  const today = new Date()
+  const dayOfYear = Math.floor((today - new Date(today.getFullYear(), 0, 0)) / 86400000)
+  return messages[dayOfYear % messages.length]
 }
 
-export default App;
+const App = () => {
+  const [motivationalMessage, setMotivationalMessage] = useState("")
+
+  useEffect(() => {
+    setMotivationalMessage(getMotivationalMessage())
+  }, [])
+
+  return (
+    <div className="app">
+        <div className="ad-block">
+        {/* Adiciona o bloco de anúncios aqui */}
+        <img src="seu-anuncio.png" alt="Anúncio" />
+      </div>
+      <h1 className="app-title">InspireMe</h1>
+      <Message message={motivationalMessage} />
+      <div className="ad-block">
+        {/* Adiciona outro bloco de anúncios aqui */}
+        <img src="seu-outro-anuncio.png" alt="Outro Anúncio" />
+      </div>
+    </div>
+  )
+}
+
+export default App
